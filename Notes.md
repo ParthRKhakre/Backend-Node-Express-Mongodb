@@ -94,4 +94,20 @@ app.listen(3000);
 
 Here, `express` is an npm package that simplifies backend development.
 
+Installing Packages 
+npm i package-name 
 
+npm - node package manager
+i - install 
+
+these packages are installed on the machine from the npm server 
+
+In order to create a Express JS server use extension .js 
+
+To Run a server use node filename.js
+
+Node Modules folder
+npm pre-written code is stored in node_modules folder
+
+package.json maintain all the dependencies that developer is using 
+ 
