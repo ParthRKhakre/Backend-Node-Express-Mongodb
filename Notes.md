@@ -163,6 +163,43 @@ POST - send data to server
 PATCH - data is present over server we want to update it 
 DELETE - delete data that is already present over server
 
+FOLDER STRUCTURE
+always create server in src folder
+
+app.js is the standard file used to create instance of the express server 
+
+server.js is the file used to start server (Keep server.js in root not in any folder)
+
+--------------------------------------------------
+
+when you receive data from the user you get it in request's body 
+
+POSTMAN is a API tool that act as frontend for creating applications 
+
+
+When you want data in req.body form use middleware
+express.json() it is a middleware
+Inorder to use the middleware use app.use(express.json())
+
+express is unable to read the data present inside the body In order to read that data we use middleware express.json()
+
+"201" status code is used when you create something successfully in backend
+
+res.status tell about what happened with the operations
+
+.json({}) used to return message in json format 
+
+
+/notes/:index
+/notes part will be static nature but the index is a dynamic part hence it changes hence the dynamic part of the routes is considered as "params"
+
+If you want to tell the express application about the dynamic part use /:dynamic_part 
+
+to check what value came in the dynamic part : 
+req.params.dynamic_part
+
+
+To Avoid the restarting of server whenever a change is made use a command : npx nodemon server.js(serverfileName)
 
 
 
