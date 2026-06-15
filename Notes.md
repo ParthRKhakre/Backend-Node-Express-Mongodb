@@ -111,3 +111,59 @@ npm pre-written code is stored in node_modules folder
 
 package.json maintain all the dependencies that developer is using 
  
+package-lock.json file maintain the inter package dependencies 
+We dont need to maintain this file it get maintain by itself
+---------------------------------------------------
+Server is a node JS Application if you are creating it with Express.
+
+In Order to start(initiate) a node JS application we use command.
+
+npm init -y 
+
+Express is backend framework 
+In order to install express use : npm i express
+
+express module is downloaded inside the node_module folder
+---------------------------------------------------
+const express = require('express')
+
+const app = express() here we created a instances of server 
+
+# app.listen(portNumber,callback);
+
+portNumber is the port using which application can receieve and respond to the request
+
+after this site is opened at localhost:portNumber = 127.0.0.1
+
+mail = 25 port number 
+files  = 20 port number
+
+req - request : data that we receive from frontend
+res - response: data that server send from backend to frontend.
+
+API(Application Programming Interface)
+is a set of rules and protocol that allows different software programs to communicate and exchange data and functionality with each other.
+
+Client <--API--> Server
+
+Types of API
+SOAP (Simple Object Access Protocol) 
+REST (Representational State Transfer) 
+RPC(Remote Procedure Call)
+GraphQL(Graph Query Language)
+Websocket API
+
+REST API 
+- Protocol used must be HTTP
+- GET,POST,DELETE,PUT,PATCH
+- Data Exchange XML or JSON
+
+GET - asking(fetching) data from server
+POST - send data to server 
+PATCH - data is present over server we want to update it 
+DELETE - delete data that is already present over server
+
+
+
+
+
