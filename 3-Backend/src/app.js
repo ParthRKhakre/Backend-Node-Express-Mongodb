@@ -55,8 +55,8 @@ app.use(express.json());
     /* Update a particular note */
     app.patch("/notes/:index",(req,res)=>{
         const index = req.params.index;
-        const title = req.body.title;
-        const description = req.body.description;
+
+        const {title,description} = req.body;
 
         notes[index].title = title;
         notes[index].description = description;

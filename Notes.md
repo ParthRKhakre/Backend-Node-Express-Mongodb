@@ -1,44 +1,50 @@
-# Server
+# Server & Express.js Notes
 
 ## What is a Server?
 
-A **server** is a computer (or machine) that has hardware components such as:
+A **server** is a computer (or machine) that contains:
 
-* Operating System (OS)
-* Processor (CPU)
-* Memory (RAM)
-* Storage
+- Operating System (OS)
+- Processor (CPU)
+- Memory (RAM)
+- Storage
 
 What makes a server different from a regular computer is its purpose. A server is configured and programmed to **receive, process, and respond to requests** from clients (users, applications, or other systems).
 
+---
+
 ## How a Server Works
 
-1. A client sends a request.
-2. The server receives the request.
-3. The server processes the request.
-4. The server sends back an appropriate response.
+1. Client sends a request.
+2. Server receives the request.
+3. Server processes the request.
+4. Server sends a response back to the client.
+
+---
 
 ## Creating a Server
 
 To create a server, you need a programming language capable of handling network requests.
 
-Some common choices are:
+Popular choices:
 
-* Go
-* Java
-* Ruby
-* .NET (C#)
-* JavaScript
+- Go
+- Java
+- Ruby
+- .NET (C#)
+- JavaScript
+
+---
 
 ## JavaScript and Node.js
 
-JavaScript cannot directly create servers outside a browser environment.
+JavaScript cannot directly create servers outside the browser environment.
 
-To run JavaScript on a server, we use **Node.js**, which provides a runtime environment for executing JavaScript on the server side.
+To run JavaScript on the server, we use **Node.js**, which provides a runtime environment for executing JavaScript on the server side.
 
 ### Example
 
-```javascript
+```js
 const http = require("http");
 
 const server = http.createServer((req, res) => {
@@ -50,13 +56,14 @@ server.listen(3000, () => {
 });
 ```
 
-In this example:
+### Explanation
 
-* `Node.js` executes the JavaScript code.
-* `http.createServer()` creates a server.
-* The server listens for incoming requests on port `3000`.
-* When a request arrives, it responds with `"Hello, World!"`.
+- `Node.js` executes JavaScript outside the browser.
+- `http.createServer()` creates a server.
+- `server.listen(3000)` starts the server on port `3000`.
+- The server responds with `"Hello, World!"`.
 
+---
 
 # Packages
 
@@ -64,23 +71,25 @@ In this example:
 
 Packages are pre-written pieces of code developed by open-source contributors that help developers perform common tasks without writing everything from scratch.
 
-They provide reusable functionality, making development faster, easier, and more efficient.
+They provide reusable functionality, making development faster and easier.
 
-## Benefits of Using Packages
+---
 
-* Reduces development time
-* Avoids reinventing the wheel
-* Provides tested and maintained solutions
-* Improves productivity
-* Simplifies complex tasks
+## Benefits of Packages
 
-## Example
+- Reduces development time
+- Avoids reinventing the wheel
+- Provides tested solutions
+- Improves productivity
+- Simplifies complex tasks
 
-In Node.js, we often use packages from **npm (Node Package Manager)**.
+---
 
-For example, the **Express.js** package helps developers create web servers and APIs without manually handling low-level HTTP operations.
+## Example: Express.js
 
-```javascript
+Express.js is a Node.js package that simplifies backend development.
+
+```js
 const express = require("express");
 
 const app = express();
@@ -92,115 +101,390 @@ app.get("/", (req, res) => {
 app.listen(3000);
 ```
 
-Here, `express` is an npm package that simplifies backend development.
+---
 
-Installing Packages 
-npm i package-name 
+## Installing Packages
 
-npm - node package manager
-i - install 
+```bash
+npm i package-name
+```
 
-these packages are installed on the machine from the npm server 
+### Meaning
 
-In order to create a Express JS server use extension .js 
+- `npm` → Node Package Manager
+- `i` → install
 
-To Run a server use node filename.js
+Packages are downloaded from the npm registry and stored locally.
 
-Node Modules folder
-npm pre-written code is stored in node_modules folder
+---
 
-package.json maintain all the dependencies that developer is using 
- 
-package-lock.json file maintain the inter package dependencies 
-We dont need to maintain this file it get maintain by itself
----------------------------------------------------
-Server is a node JS Application if you are creating it with Express.
+## Running a JavaScript File
 
-In Order to start(initiate) a node JS application we use command.
+```bash
+node filename.js
+```
 
-npm init -y 
+Example:
 
-Express is backend framework 
-In order to install express use : npm i express
+```bash
+node server.js
+```
 
-express module is downloaded inside the node_module folder
----------------------------------------------------
-const express = require('express')
+---
 
-const app = express() here we created a instances of server 
+## Node Modules Folder
 
-# app.listen(portNumber,callback);
+The `node_modules` folder stores all installed packages and their dependencies.
 
-portNumber is the port using which application can receieve and respond to the request
+---
 
-after this site is opened at localhost:portNumber = 127.0.0.1
+## package.json
 
-mail = 25 port number 
-files  = 20 port number
+Maintains information about:
 
-req - request : data that we receive from frontend
-res - response: data that server send from backend to frontend.
+- Project details
+- Installed dependencies
+- Scripts
+- Metadata
 
-API(Application Programming Interface)
-is a set of rules and protocol that allows different software programs to communicate and exchange data and functionality with each other.
+Example:
 
-Client <--API--> Server
+```json
+{
+  "dependencies": {
+    "express": "^5.0.0"
+  }
+}
+```
 
-Types of API
-SOAP (Simple Object Access Protocol) 
-REST (Representational State Transfer) 
-RPC(Remote Procedure Call)
-GraphQL(Graph Query Language)
-Websocket API
+---
 
-REST API 
-- Protocol used must be HTTP
-- GET,POST,DELETE,PUT,PATCH
-- Data Exchange XML or JSON
+## package-lock.json
 
-GET - asking(fetching) data from server
-POST - send data to server 
-PATCH - data is present over server we want to update it 
-DELETE - delete data that is already present over server
+Maintains exact versions of installed packages and their internal dependencies.
 
-FOLDER STRUCTURE
-always create server in src folder
+This file is automatically managed by npm.
 
-app.js is the standard file used to create instance of the express server 
+---
 
-server.js is the file used to start server (Keep server.js in root not in any folder)
+# Creating an Express Application
 
---------------------------------------------------
+A server created using Express is a **Node.js application**.
 
-when you receive data from the user you get it in request's body 
+### Initialize a Node.js Project
 
-POSTMAN is a API tool that act as frontend for creating applications 
+```bash
+npm init -y
+```
 
+### Install Express
 
-When you want data in req.body form use middleware
-express.json() it is a middleware
-Inorder to use the middleware use app.use(express.json())
+```bash
+npm i express
+```
 
-express is unable to read the data present inside the body In order to read that data we use middleware express.json()
+Express is downloaded into the `node_modules` folder.
 
-"201" status code is used when you create something successfully in backend
+---
 
-res.status tell about what happened with the operations
+## Creating an Express Server
 
-.json({}) used to return message in json format 
+```js
+const express = require("express");
 
+const app = express();
+```
 
+### Explanation
+
+- `require("express")` imports Express.
+- `express()` creates an instance of the Express application.
+
+---
+
+## Starting the Server
+
+```js
+app.listen(portNumber, callback);
+```
+
+Example:
+
+```js
+app.listen(3000, () => {
+    console.log("Server Started");
+});
+```
+
+### Explanation
+
+- `portNumber` is the port on which the application listens.
+- The application becomes accessible at:
+
+```text
+http://localhost:3000
+```
+
+or
+
+```text
+http://127.0.0.1:3000
+```
+
+---
+
+## Common Port Numbers
+
+| Service | Port |
+|----------|------|
+| HTTP | 80 |
+| HTTPS | 443 |
+| FTP | 20 |
+| SMTP (Mail) | 25 |
+
+---
+
+# Request and Response
+
+### Request (`req`)
+
+Data sent from the frontend/client to the backend.
+
+### Response (`res`)
+
+Data sent from the backend/server to the frontend.
+
+---
+
+# API (Application Programming Interface)
+
+An API is a set of rules and protocols that allows different software systems to communicate and exchange data.
+
+```text
+Client <---- API ----> Server
+```
+
+---
+
+## Types of APIs
+
+- SOAP (Simple Object Access Protocol)
+- REST (Representational State Transfer)
+- RPC (Remote Procedure Call)
+- GraphQL
+- WebSocket API
+
+---
+
+# REST API
+
+### Characteristics
+
+- Uses HTTP protocol
+- Supports CRUD operations
+- Exchanges data using JSON or XML
+
+### HTTP Methods
+
+| Method | Purpose |
+|----------|----------|
+| GET | Fetch data |
+| POST | Create/Send data |
+| PATCH | Update existing data |
+| PUT | Replace existing data |
+| DELETE | Delete data |
+
+---
+
+# Recommended Folder Structure
+
+```text
+Project
+│
+├── node_modules
+├── src
+│   └── app.js
+│
+├── server.js
+├── package.json
+└── package-lock.json
+```
+
+### app.js
+
+Contains the Express application instance.
+
+### server.js
+
+Starts the server.
+
+> Keep `server.js` in the project root, not inside `src`.
+
+---
+
+# Request Body
+
+When a client sends data to the server, it is typically available inside:
+
+```js
+req.body
+```
+
+---
+
+# Postman
+
+Postman is an API testing tool that acts like a frontend for interacting with backend APIs.
+
+It allows developers to:
+
+- Send requests
+- Test APIs
+- Inspect responses
+- Debug endpoints
+
+---
+
+# Middleware
+
+Middleware is a function that executes between receiving a request and sending a response.
+
+### express.json()
+
+Express cannot read JSON data inside the request body by default.
+
+To parse JSON data:
+
+```js
+app.use(express.json());
+```
+
+### Example
+
+```js
+const express = require("express");
+
+const app = express();
+
+app.use(express.json());
+```
+
+Now JSON data sent by the client becomes available in:
+
+```js
+req.body
+```
+
+---
+
+# Status Codes
+
+### 201 Created
+
+Used when a resource is successfully created.
+
+Example:
+
+```js
+res.status(201).json({
+    message: "Note Created Successfully"
+});
+```
+
+---
+
+## res.status()
+
+Specifies the HTTP status code.
+
+```js
+res.status(200);
+```
+
+---
+
+## res.json()
+
+Sends data in JSON format.
+
+```js
+res.json({
+    message: "Success"
+});
+```
+
+---
+
+# Route Parameters
+
+Consider the route:
+
+```text
 /notes/:index
-/notes part will be static nature but the index is a dynamic part hence it changes hence the dynamic part of the routes is considered as "params"
+```
 
-If you want to tell the express application about the dynamic part use /:dynamic_part 
+### Static Part
 
-to check what value came in the dynamic part : 
-req.params.dynamic_part
+```text
+/notes
+```
 
+### Dynamic Part
 
-To Avoid the restarting of server whenever a change is made use a command : npx nodemon server.js(serverfileName)
+```text
+:index
+```
 
+The dynamic portion is called a **Route Parameter (Params)**.
 
+---
 
+## Accessing Route Parameters
 
+```js
+app.get("/notes/:index", (req, res) => {
+    console.log(req.params.index);
+});
+```
+
+### General Syntax
+
+```js
+req.params.parameterName
+```
+
+---
+
+# Nodemon
+
+By default, Node.js requires restarting the server whenever changes are made.
+
+### Install and Run Using Nodemon
+
+```bash
+npx nodemon server.js
+```
+
+### Benefits
+
+- Automatically restarts the server
+- Improves development speed
+- No manual restarts needed
+
+---
+
+# Quick Commands
+
+```bash
+# Initialize Node Project
+npm init -y
+
+# Install Express
+npm i express
+
+# Run Application
+node server.js
+
+# Run with Nodemon
+npx nodemon server.js
+```
