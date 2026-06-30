@@ -312,11 +312,11 @@ Project
 
 ### app.js
 
-Contains the Express application instance.
+Contains the Express application instance here the server is created.
 
 ### server.js
 
-Starts the server.
+Starts the server. 
 
 > Keep `server.js` in the project root, not inside `src`.
 
